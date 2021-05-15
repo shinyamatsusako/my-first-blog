@@ -10,6 +10,10 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
+    #------------画像追加用-----------#
+    image = models.ImageField(upload_to='images', verbose_name='イメージ画像', null=True, blank=True)
+    #--------------------------------#
+
     def publish(self):
         self.published_date = timezone.now()
         self.save()
